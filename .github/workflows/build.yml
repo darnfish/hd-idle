@@ -25,6 +25,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Install dependencies
         run: sudo apt-get install -y debhelper dh-golang golang-go
+      - name: Install Go dependencies
+        run: go get .
       - name: Build
         run: dpkg-buildpackage -a ${{ matrix.platform }} -us -uc -b
     
